@@ -1,0 +1,20 @@
+# Copyright (c) 2021 Garry T. Williams
+
+[Unit]
+Description=Keep Dyn DNS Updated
+
+[Service]
+Type=exec
+Restart=always
+RestartSec=10
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=-/home/garry/tmp
+Nice=19
+ExecStart=/home/garry/bin/dyn-update
+
+[Install]
+WantedBy=default.target
+
+# vim: set sw=4 sts=4 ts=8 et syn=systemd:
