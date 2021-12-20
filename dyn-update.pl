@@ -81,19 +81,20 @@ while (1) {
 
     else {
         $old = <$fh>;
-        chomp $old;
+        chomp $old if $old;
         close $fh;
     }
 
-    if ($old ne $ip) {
+    if (!$old || $old ne $ip) {
         open $fh, '>', $cmds or die "can't open $cmds: $!\n";
         print $fh "server $cfg->{server}\n";
         for (@{$cfg->{zones}}) {
             print $fh "zone $_\n";
-            print $fh "update add $_ 60 A $ip\n"
+            print $fh "update add $_ 60 A $ip\n";
+            print $fh "send\n";
+            print $fh "answer\n";
         }
-        print $fh "send\n";
-        print $fh "answer\n";
+
         close $fh or die "can't close $cmds: $!\n";
 
         system($chg, @args) and die "$chg failed with $?\n";
