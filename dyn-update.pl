@@ -42,7 +42,7 @@ $SIG{__DIE__} = sub {
 
 my %opts;
 {
-    my $me = basename $0:
+    my $me = basename $0;
     my $usage = "usage: $me [ -i secs ]\n";
     getopts('i:', \%opts) || die $usage;
     $opts{i} ||= 7200;
