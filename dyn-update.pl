@@ -54,8 +54,6 @@ my %opts;
 
 my $cfg = LoadFile('/home/garry/.config/secrets.yaml')->{dyn};
 
-my $server = $cfg->{server};
-my $check  = $cfg->{checkip};
 my $cmds   = '/home/garry/.cache/dyn/ip-in';
 my @args   = ('-y', "hmac-md5:$cfg->{tsig}{name}:$cfg->{tsig}{secret}", $cmds);
 my $cache  = '/home/garry/.cache/dyn/ip';
@@ -64,10 +62,10 @@ my $chg    = '/usr/bin/nsupdate';
 $|++;
 
 while (1) {
-    my $doc = LWP::UserAgent->new()->get($check)->decoded_content();
+    my $doc = LWP::UserAgent->new()->get($cfg->{checkip})->decoded_content();
     my $ip;
     unless (($ip) = $doc =~ /Current IP Address:\s+(\d+\.\d+\.\d+\.\d+)/) {
-        warn "${NOTICE}GET $check failed\n";
+        warn "${NOTICE}GET $cfg->{checkip} failed\n";
         next;
     }
 
@@ -89,7 +87,7 @@ while (1) {
 
     if ($old ne $ip) {
         open $fh, '>', $cmds or die "can't open $cmds: $!\n";
-        print $fh "server update.dyndns.com\n";
+        print $fh "server $cfg->{server}\n";
         for (@{$cfg->{zones}}) {
             print $fh "zone $_\n";
             print $fh "update add $_ 60 A $ip\n"
