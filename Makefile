@@ -22,6 +22,7 @@ PFLAGS  = -c "Update DynDNS IP Address"
 	$(POD2MAN) $(PFLAGS) -n$* $< >$@
 
 default: $(EXECS) $(SERVICE) $(MANS)
+	@mkdir -p $(BIN) $(MAN)
 	@for f in $(EXECS) ; do \
 	    $(INSTALL) -vm 0555 $$f $(BIN) ; \
 	done
