@@ -2,6 +2,7 @@
 
 [Unit]
 Description=Keep Dyn DNS Updated
+Documentation=man:dyn-update(1)
 
 [Service]
 Type=exec
