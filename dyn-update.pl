@@ -163,7 +163,7 @@ Copyright (c) 2021 Garry T. Williams
 
 =head1 AUTHOR
 
-Garry T. Williams C<< gtwilliams@gmail.com >>
+Garry T. Williams <gtwilliams@gmail.com>
 
 =head1 SEE ALSO
 
