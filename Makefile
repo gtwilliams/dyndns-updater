@@ -2,15 +2,16 @@
 
 INSTALL  = /usr/bin/install
 POD2MAN  = /usr/bin/pod2man
+PFLAGS   = -c "Update DynDNS IP Address"
 SYSTEMD  = /usr/bin/systemctl
 PREFIX   = /home/garry
 BIN      = $(PREFIX)/bin
 MAN      = $(PREFIX)/man/man1
 SVCDIR   = $(PREFIX)/.config/systemd/user
+
 EXECS    = dyn-update
 MANS     = dyn-update.1
 SERVICE  = dyn-update.service
-PFLAGS   = -c "Update DynDNS IP Address"
 INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 	   $(addprefix $(SVCDIR)/,$(SERVICE))
 
