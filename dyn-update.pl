@@ -141,7 +141,7 @@ has, then the DynDNS site is notified to change our A record.
 =head2 ~/.config/secrets.yaml
 
 The F<~/.config/secrets.yaml> file is a YAML format file that must
-contain a C<dyn> key that contains the following keys:
+contain a C<dyn> key that contains these four keys:
 
     dyn:
         checkip: URL that returns the IPv4 address of the client
@@ -167,6 +167,6 @@ Garry T. Williams C<< gtwilliams@gmail.com >>
 
 =head1 SEE ALSO
 
-nsupdate(1)
+L<https://yaml.org/>, nsupdate(1)
 
 =cut
