@@ -5,10 +5,9 @@ POD2MAN  = /usr/bin/pod2man
 PFLAGS   = -c "Update DynDNS IP Address"
 SYSTEMD  = /usr/bin/systemctl
 
-PREFIX   = /home/garry
-BIN      = $(PREFIX)/bin
-MAN      = $(PREFIX)/man/man1
-SVCDIR   = $(PREFIX)/.config/systemd/user
+BIN      = $(HOME)/bin
+MAN      = $(HOME)/man/man1
+SVCDIR   = $(HOME)/.config/systemd/user
 
 EXECS    = dyn-update
 MANS     = dyn-update.1
