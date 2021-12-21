@@ -40,6 +40,6 @@ $(SVCDIR)/%: %
 	@chmod 0755 $@
 
 %.1: %.pl
-	@$(POD2MAN) $(PFLAGS) -n$* $< >$@
+	$(POD2MAN) $(PFLAGS) -n$* $< >$@
 
 # vim: set ts=8 sw=4 ai noet syntax=make:
