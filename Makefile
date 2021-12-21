@@ -4,6 +4,7 @@ INSTALL  = /usr/bin/install
 POD2MAN  = /usr/bin/pod2man
 PFLAGS   = -c "Update DynDNS IP Address"
 SYSTEMD  = /usr/bin/systemctl
+
 PREFIX   = /home/garry
 BIN      = $(PREFIX)/bin
 MAN      = $(PREFIX)/man/man1
@@ -15,6 +16,7 @@ SERVICE  = dyn-update.service
 INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 	   $(addprefix $(SVCDIR)/,$(SERVICE))
 
+.SUFFIXES:
 .SUFFIXES: .pl .1
 
 .pl:
@@ -28,17 +30,18 @@ INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 install: $(INSTALLS)
 
 $(BIN)/%: %
-	@$(INSTALL) -vm 00555 $< $@
+	$(INSTALL) -m 00555 $< $@
 
 $(MAN)/%: %
-	@$(INSTALL) -vm 00444 $< $@
+	$(INSTALL) -m 00444 $< $@
 
 $(SVCDIR)/%: %
-	@$(INSTALL) -vm 00444 $< $@
+	$(INSTALL) -m 00444 $< $@
 	$(SYSTEMD) --user daemon-reload
 
+
+.PHONY: clean
 clean:
 	rm -f $(EXECS) $(MANS)
 
 # vim: set ts=8 sw=4 ai noet syntax=make:
-
