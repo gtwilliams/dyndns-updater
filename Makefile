@@ -16,18 +16,13 @@ SERVICE  = dyn-update.service
 INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 	   $(addprefix $(SVCDIR)/,$(SERVICE))
 
-.SUFFIXES:
-.SUFFIXES: .pl .1
+.INTERMEDIATE: $(EXECS) $(MANS)
+.PHONY: clean install
 
 install: $(INSTALLS)
 
-.pl:
-	@perl -c $<
-	@cp $< $@
-	@chmod 0755 $@
-
-.pl.1:
-	@$(POD2MAN) $(PFLAGS) -n$* $< >$@
+clean:
+	rm -f $(EXECS) $(MANS)
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
@@ -39,9 +34,12 @@ $(SVCDIR)/%: %
 	$(INSTALL) -m 00444 $< $@
 	$(SYSTEMD) --user daemon-reload
 
+%: %.pl
+	@perl -c $<
+	@cp $< $@
+	@chmod 0755 $@
 
-.PHONY: clean
-clean:
-	rm -f $(EXECS) $(MANS)
+%.1: %.pl
+	@$(POD2MAN) $(PFLAGS) -n$* $< >$@
 
 # vim: set ts=8 sw=4 ai noet syntax=make:
