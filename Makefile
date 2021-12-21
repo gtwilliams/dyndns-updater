@@ -19,6 +19,8 @@ INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 .SUFFIXES:
 .SUFFIXES: .pl .1
 
+install: $(INSTALLS)
+
 .pl:
 	@perl -c $<
 	@cp $< $@
@@ -26,8 +28,6 @@ INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 
 .pl.1:
 	@$(POD2MAN) $(PFLAGS) -n$* $< >$@
-
-install: $(INSTALLS)
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
