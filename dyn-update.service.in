@@ -9,9 +9,6 @@ Type=exec
 Restart=always
 RestartSec=10
 NoNewPrivileges=true
-ProtectSystem=full
-ProtectHome=read-only
-ReadWritePaths=-@HOME@/.cache/dyn
 Nice=19
 ExecStart=@HOME@/.local/bin/dyn-update
 
