@@ -52,14 +52,12 @@ my %opts;
     }
 }
 
-my $home = (getpwuid($<))[7];
-
-my $cfg = LoadFile("$home/.config/secrets.yaml")->{dyn};
-
-my $cmds   = "$home/.cache/dyn/ip-in";
-my @args   = ('-y', "hmac-md5:$cfg->{tsig}{name}:$cfg->{tsig}{secret}", $cmds);
-my $cache  = "$home/.cache/dyn/ip";
-my $chg    = '/usr/bin/nsupdate';
+my $home  = (getpwuid($<))[7];
+my $cfg   = LoadFile("$home/.config/secrets.yaml")->{dyn};
+my $cmds  = "$home/.cache/dyn/ip-in";
+my @args  = ('-y', "hmac-md5:$cfg->{tsig}{name}:$cfg->{tsig}{secret}", $cmds);
+my $cache = "$home/.cache/dyn/ip";
+my $chg   = '/usr/bin/nsupdate';
 
 $|++;
 
