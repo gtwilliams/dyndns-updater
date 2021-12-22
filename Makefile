@@ -18,7 +18,7 @@ INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 .INTERMEDIATE: $(EXECS) $(MANS)
 .PHONY: install
 
-install: $(BIN) $(MAN) $(INSTALLS)
+install: $(BIN) $(MAN) $(SVCDIR) $(INSTALLS)
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
@@ -42,6 +42,9 @@ $(BIN):
 	mkdir -p $@
 
 $(MAN):
+	mkdir -p $@
+
+$(SVCDIR):
 	mkdir -p $@
 
 # vim: set ts=8 sw=4 ai noet syntax=make:
