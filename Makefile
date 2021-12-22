@@ -6,7 +6,7 @@ PFLAGS   = -c "Update DynDNS IP Address"
 SYSTEMD  = /usr/bin/systemctl
 
 BIN      = $(HOME)/.local/bin
-MAN      = $(HOME)/man/man1
+MAN      = $(HOME)/.local/man/man1
 SVCDIR   = $(HOME)/.config/systemd/user
 
 EXECS    = dyn-update
