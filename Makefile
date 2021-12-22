@@ -12,8 +12,9 @@ SVCDIR   = $(HOME)/.config/systemd/user
 EXECS    = dyn-update
 MANS     = dyn-update.1
 SERVICE  = dyn-update.service
-INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
-	   $(addprefix $(SVCDIR)/,$(SERVICE))
+INSTALLS = $(addprefix $(BIN)/, $(EXECS)) \
+	   $(addprefix $(MAN)/, $(MANS)) \
+	   $(addprefix $(SVCDIR)/, $(SERVICE))
 
 .INTERMEDIATE: $(EXECS) $(MANS)
 .PHONY: install
