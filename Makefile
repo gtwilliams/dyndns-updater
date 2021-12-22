@@ -42,7 +42,7 @@ $(SVCDIR)/%: %
 %.1: %.pl
 	$(POD2MAN) $(PFLAGS) -n$* $< >$@
 
-dyn-update.service: dyn-update.service.in
+%.service: %.service.in
 	sed -e 's|@HOME@|$(HOME)|g' $< >$@
 
 $(BIN) $(MAN) $(SVCDIR):
