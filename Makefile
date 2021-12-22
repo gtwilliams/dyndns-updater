@@ -20,12 +20,9 @@ INSTALLS = $(addprefix $(BIN)/, $(EXECS)) \
 	   $(addprefix $(SVCDIR)/, $(SERVICE))
 
 .INTERMEDIATE: $(EXECS) $(MANS) $(SERVICE)
-.PHONY: install clean
+.PHONY: install
 
 install: $(BIN) $(MAN) $(SVCDIR) $(INSTALLS)
-
-clean:
-	rm -f dyn-update.service
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
