@@ -21,3 +21,29 @@ keys at a minimum:
         zones: ['dns-name1', 'dns-name2', ...]
 
 See DynDNS for the necessary name and secret to update DNS A records.
+
+# Installation
+To install this daemon, change to the directory that contains this
+file and type,
+
+    make
+
+The daemon will be installed in `~/.local/bin` and a service file will
+be installed in `~/.config/systemd/user`.
+
+To start the daemon,
+
+    systemctl --user start dyn-update.service
+
+To get the daemon to start every time you log in, enable the service
+with this command:
+
+    systemctl --user enable dyn-update.service
+
+If you want the daemon to run whenever you reboot (regardless of
+whether you log in or not), you need to enter this command:
+
+    sudo loginctl enable-linger <login-name>
+
+Now anything defined in the user's default.target (this daemon) will
+automatically start at boot time without the need to log in.
