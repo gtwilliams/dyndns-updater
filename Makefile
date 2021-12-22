@@ -16,12 +16,9 @@ INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 	   $(addprefix $(SVCDIR)/,$(SERVICE))
 
 .INTERMEDIATE: $(EXECS) $(MANS)
-.PHONY: clean install
+.PHONY: install
 
 install: $(INSTALLS)
-
-clean:
-	rm -f $(EXECS) $(MANS)
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
