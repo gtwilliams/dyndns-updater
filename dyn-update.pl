@@ -85,24 +85,24 @@ while (1) {
         close $fh;
     }
 
-    if (!$old || $old ne $ip) {
-        open $fh, '>', $cmds or die "can't open $cmds: $!\n";
-        print $fh "server $cfg->{server}\n";
-        for (@{$cfg->{zones}}) {
-            print $fh "zone $_\n";
-            print $fh "update add $_ 60 A $ip\n";
-            print $fh "send\n";
-            print $fh "answer\n";
-        }
+    next unless !$old || $old ne $ip;
 
-        close $fh or die "can't close $cmds: $!\n";
-
-        system($chg, @args) and die "$chg failed with $?\n";
-        open $fh, '>', $cache or die "can't open $cache: $!\n";
-        print $fh $ip;
-        close $fh or die "can't close $cache: $!\n";
-        unlink $cmds;
+    open $fh, '>', $cmds or die "can't open $cmds: $!\n";
+    print $fh "server $cfg->{server}\n";
+    for (@{$cfg->{zones}}) {
+        print $fh "zone $_\n";
+        print $fh "update add $_ 60 A $ip\n";
+        print $fh "send\n";
+        print $fh "answer\n";
     }
+
+    close $fh or die "can't close $cmds: $!\n";
+
+    system($chg, @args) && die "$chg failed with $?\n";
+    open $fh, '>', $cache or die "can't open $cache: $!\n";
+    print $fh $ip;
+    close $fh or die "can't close $cache: $!\n";
+    unlink $cmds;
 }
 
 continue {
