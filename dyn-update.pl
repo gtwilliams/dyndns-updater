@@ -47,8 +47,8 @@ my %opts;
     getopts('i:', \%opts) || die $usage;
     $opts{i} ||= 7200;
     if ($opts{i} < 600) {
-        warn "<INFO>sleep time is less than 10 minutes\n";
-        warn "<INFO>consider increasing -i option\n";
+        warn "${INFO}sleep time is less than 10 minutes\n";
+        warn "${INFO}consider increasing -i option\n";
     }
 }
 
