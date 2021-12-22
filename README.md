@@ -5,6 +5,9 @@ This is a simple daemon that wakes up every two hours to check if our
 IP address has changed since the last time we checked.  If a change is
 detected update.dyn.com is contacted to update our DNS A record.
 
+Some routers handle this stuff automatically, but my ISP (ATT) doesn't
+provide that in its router.
+
 The service daemon wants a YAML file in ~/.config/secrets.yaml to
 obtain necessary secrets and service URLs.  You must provide these
 keys at a minimum:
