@@ -33,8 +33,9 @@ file and type,
 
     make
 
-The daemon will be installed in `~/.local/bin` and a systemd service
-file will be installed in `~/.config/systemd/user`.
+The daemon will be installed in `~/.local/bin`, its manual page in
+`~/.local/man/man1`, and a systemd service file will be installed in
+`~/.config/systemd/user`.
 
 To start the daemon,
 
