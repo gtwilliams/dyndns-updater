@@ -46,7 +46,7 @@ $(SVCDIR)/%: %
 	$(POD2MAN) $(PFLAGS) -n$* $< >$@
 
 dyn-update.service: dyn-update.service.in
-	$(PERL) -pe 's|\@HOME\@|$(HOME)|g' $< >$@
+	sed -e 's|@HOME@|$(HOME)|g' $< >$@
 
 $(BIN) $(MAN) $(SVCDIR):
 	mkdir -p $@
