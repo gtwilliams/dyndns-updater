@@ -11,9 +11,9 @@ RestartSec=10
 NoNewPrivileges=true
 ProtectSystem=full
 ProtectHome=read-only
-ReadWritePaths=-/home/garry/tmp
+ReadWritePaths=-/home/garry/.cache/dyn
 Nice=19
-ExecStart=/home/garry/bin/dyn-update
+ExecStart=/home/garry/.local/bin/dyn-update
 
 [Install]
 WantedBy=default.target

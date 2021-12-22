@@ -5,7 +5,7 @@ POD2MAN  = /usr/bin/pod2man
 PFLAGS   = -c "Update DynDNS IP Address"
 SYSTEMD  = /usr/bin/systemctl
 
-BIN      = $(HOME)/bin
+BIN      = $(HOME)/.local/bin
 MAN      = $(HOME)/man/man1
 SVCDIR   = $(HOME)/.config/systemd/user
 
@@ -18,7 +18,7 @@ INSTALLS = $(addprefix $(BIN)/,$(EXECS)) $(addprefix $(MAN)/,$(MANS)) \
 .INTERMEDIATE: $(EXECS) $(MANS)
 .PHONY: install
 
-install: $(INSTALLS)
+install: $(BIN) $(MAN) $(INSTALLS)
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
@@ -37,5 +37,11 @@ $(SVCDIR)/%: %
 
 %.1: %.pl
 	$(POD2MAN) $(PFLAGS) -n$* $< >$@
+
+$(BIN):
+	mkdir -p $@
+
+$(MAN):
+	mkdir -p $@
 
 # vim: set ts=8 sw=4 ai noet syntax=make:
