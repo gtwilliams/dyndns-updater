@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 # Copyright (c) 2021 Garry T. Williams
+#
+# This is free software.  You can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3 or any
+# later version.  You should have a copy of the GNU General Public
+# License supplied with this program.
 
 use strict;
 use warnings;
