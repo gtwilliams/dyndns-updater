@@ -17,5 +17,4 @@ keys at a minimum:
         server: 'update.dyndns.com'
         zones: ['dns-name1', 'dns-name2', ...]
 
-See your dynamic DNS provider for the necessary name and secret to
-update DNS A records.
+See DynDNS for the necessary name and secret to update DNS A records.
