@@ -39,13 +39,7 @@ $(SVCDIR)/%: %
 %.1: %.pl
 	$(POD2MAN) $(PFLAGS) -n$* $< >$@
 
-$(BIN):
-	mkdir -p $@
-
-$(MAN):
-	mkdir -p $@
-
-$(SVCDIR):
+$(BIN) $(MAN) $(SVCDIR):
 	mkdir -p $@
 
 # vim: set ts=8 sw=4 ai noet syntax=make:
