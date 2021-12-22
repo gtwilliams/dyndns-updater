@@ -10,7 +10,7 @@ use Sys::Syslog qw/:macros/;
 use YAML::XS qw/LoadFile/;
 
 # From Sys::Syslog qw/:macros/, we make a constant that the system
-# journal will understand, like "<4>" at the beginning or a message
+# journal will understand, like "<4>" at the beginning of a message
 # that will be logged by the journal.  These constants come from
 # sys/syslog.h:
 # #define LOG_EMERG      0   /* system is unusable */
@@ -52,11 +52,13 @@ my %opts;
     }
 }
 
-my $cfg = LoadFile('/home/garry/.config/secrets.yaml')->{dyn};
+my $home = (getpwuid($<))[7];
 
-my $cmds   = '/home/garry/.cache/dyn/ip-in';
+my $cfg = LoadFile("$home/.config/secrets.yaml")->{dyn};
+
+my $cmds   = "$home/.cache/dyn/ip-in";
 my @args   = ('-y', "hmac-md5:$cfg->{tsig}{name}:$cfg->{tsig}{secret}", $cmds);
-my $cache  = '/home/garry/.cache/dyn/ip';
+my $cache  = "$home/.cache/dyn/ip";
 my $chg    = '/usr/bin/nsupdate';
 
 $|++;

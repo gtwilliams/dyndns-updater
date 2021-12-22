@@ -4,6 +4,9 @@ INSTALL  = /usr/bin/install
 POD2MAN  = /usr/bin/pod2man
 PFLAGS   = -c "Update DynDNS IP Address"
 SYSTEMD  = /usr/bin/systemctl
+PERL     = /usr/bin/perl
+
+HOME     = $(shell $(PERL) -e 'print +(getpwuid($$<))[7]')
 
 BIN      = $(HOME)/.local/bin
 MAN      = $(HOME)/.local/man/man1
