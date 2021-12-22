@@ -19,10 +19,13 @@ INSTALLS = $(addprefix $(BIN)/, $(EXECS)) \
 	   $(addprefix $(MAN)/, $(MANS)) \
 	   $(addprefix $(SVCDIR)/, $(SERVICE))
 
-.INTERMEDIATE: $(EXECS) $(MANS)
-.PHONY: install
+.INTERMEDIATE: $(EXECS) $(MANS) $(SERVICE)
+.PHONY: install clean
 
 install: $(BIN) $(MAN) $(SVCDIR) $(INSTALLS)
+
+clean:
+	rm -f dyn-update.service
 
 $(BIN)/%: %
 	$(INSTALL) -m 00555 $< $@
@@ -41,6 +44,9 @@ $(SVCDIR)/%: %
 
 %.1: %.pl
 	$(POD2MAN) $(PFLAGS) -n$* $< >$@
+
+dyn-update.service: dyn-update.service.in
+	$(PERL) -pe 's|\@HOME\@|$(HOME)|g' $< >$@
 
 $(BIN) $(MAN) $(SVCDIR):
 	mkdir -p $@
