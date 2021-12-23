@@ -175,6 +175,6 @@ Garry T. Williams <gtwilliams@gmail.com>
 
 =head1 SEE ALSO
 
-L<https://yaml.org/>, nsupdate(1)
+L<https://yaml.org/>, L<https://help.dyn.com/tsig/>, nsupdate(1)
 
 =cut
