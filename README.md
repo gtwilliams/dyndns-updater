@@ -42,6 +42,10 @@ To start the daemon,
 
     systemctl --user start dyn-update.service
 
+Check the system journal to see any error messages from the daemon:
+
+    journalctl --user -f
+
 To get the daemon to start every time you log in, enable the service
 with this command:
 
