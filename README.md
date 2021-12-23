@@ -26,7 +26,8 @@ keys at a minimum:
         server: 'update.dyndns.com'
         zones: ['dns-name1', 'dns-name2', ...]
 
-See DynDNS for the necessary name and secret to update DNS A records.
+See DynDNS for the necessary name and secret to update DNS A records,
+[Dynamic DNS Updates via TSIG](https://help.dyn.com/tsig/).
 
 To install this daemon, change to the directory that contains this
 file and type,
