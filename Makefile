@@ -5,23 +5,23 @@
 # later version.  You should have a copy of the GNU General Public
 # License supplied with this program.
 
-INSTALL  = /usr/bin/install
-POD2MAN  = /usr/bin/pod2man
-PFLAGS   = -c "Update DynDNS IP Address"
-SYSTEMD  = /usr/bin/systemctl
+INSTALL  := /usr/bin/install
+POD2MAN  := /usr/bin/pod2man
+PFLAGS   := -c "Update DynDNS IP Address"
+SYSTEMD  := /usr/bin/systemctl
 
-HOME     = $(shell perl -e 'print +(getpwuid($$<))[7]')
+HOME     := $(shell perl -e 'print +(getpwuid($$<))[7]')
 
-BIN      = $(HOME)/.local/bin
-MAN      = $(HOME)/.local/man/man1
-SVCDIR   = $(HOME)/.config/systemd/user
+BIN      := $(HOME)/.local/bin
+MAN      := $(HOME)/.local/man/man1
+SVCDIR   := $(HOME)/.config/systemd/user
 
-EXECS    = dyn-update
-MANS     = dyn-update.1
-SERVICE  = dyn-update.service
-INSTALLS = $(addprefix $(BIN)/, $(EXECS)) \
-	   $(addprefix $(MAN)/, $(MANS)) \
-	   $(addprefix $(SVCDIR)/, $(SERVICE))
+EXECS    := dyn-update
+MANS     := dyn-update.1
+SERVICE  := dyn-update.service
+INSTALLS := $(addprefix $(BIN)/, $(EXECS)) \
+	    $(addprefix $(MAN)/, $(MANS)) \
+	    $(addprefix $(SVCDIR)/, $(SERVICE))
 
 .INTERMEDIATE: $(EXECS) $(MANS) $(SERVICE)
 .PHONY: install
