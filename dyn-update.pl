@@ -122,6 +122,10 @@ __END__
 
 dyn-update - keep DynDNS up to date
 
+=head1 SYNOPSIS
+
+    dyn-update [ -i seconds ]
+
 =head1 OPTIONS
 
 =over
