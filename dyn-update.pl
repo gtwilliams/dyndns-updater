@@ -152,11 +152,11 @@ The F<~/.config/secrets.yaml> file is a YAML format file that must
 contain a C<dyn> key that contains these four keys:
 
     dyn:
-        checkip: URL that returns the IPv4 address of the client
+        checkip: 'http://checkip.dyndns.org/'
         tsig:
             name: tsig name
             secret: tsig secret
-        server: the name of the tsig server
+        server: 'update.dyndns.com'
         zones: [ list of zones to update ]
 
 =head2 ~/.cache/dyn/ip
