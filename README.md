@@ -54,7 +54,7 @@ with this command:
 If you want the daemon to run whenever you reboot (regardless of
 whether you log in or not), you need to enter this command:
 
-    loginctl enable-linger <login-name>
+    sudo loginctl enable-linger <login-name>
 
 Now anything defined in the user's default.target (this daemon) will
 automatically start at boot time without the need to log in.
