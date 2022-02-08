@@ -67,10 +67,17 @@ my $chg   = '/usr/bin/nsupdate';
 $|++;
 
 while (1) {
-    my $doc = LWP::UserAgent->new()->get($cfg->{checkip})->decoded_content();
+    my $resp = LWP::UserAgent->new()->get($cfg->{checkip});
+    unless ($resp->is_success()) {
+        warn "${NOTICE}GET $cfg->{checkip}: ", $resp->code(),
+            ": ", $resp->message(), "\n";
+        next;
+    }
+
+    my $doc = $resp->decoded_content();
     my $ip;
     unless (($ip) = $doc =~ /Current IP Address:\s+(\d+\.\d+\.\d+\.\d+)/) {
-        warn "${NOTICE}GET $cfg->{checkip} failed\n";
+        warn "${NOTICE}GET $cfg->{checkip}: $doc\n";
         next;
     }
 
