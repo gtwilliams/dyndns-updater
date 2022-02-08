@@ -29,8 +29,8 @@ keys at a minimum:
 See DynDNS for the necessary name and secret to update DNS A records,
 [Dynamic DNS Updates via TSIG](https://help.dyn.com/tsig/).
 
-To install this daemon, change to the directory that contains this
-file and type,
+To install this daemon, clone this repository on your own machine then
+change to the directory that contains this file and type,
 
     make
 
