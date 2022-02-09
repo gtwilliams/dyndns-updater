@@ -14,9 +14,10 @@ provide that in its router.
 Installation
 ------------
 
-The installation will require `/usr/bin/perl` and `/usr/bin/pod2man`.
-These are provided by the perl-interpreter and perl-podlators packages
-in Fedora.  Check your distribution for appropriate prerequisites.
+The installation will require `/usr/bin/make`, `/usr/bin/perl`, and
+`/usr/bin/pod2man`.  These are provided by Fedora packages make,
+perl-interpreter, and perl-podlators respectively.  Check your
+distribution for appropriate prerequisites.
 
 The service daemon wants a YAML file in `~/.config/secrets.yaml` to
 obtain necessary secrets and service URLs.  You must provide these
