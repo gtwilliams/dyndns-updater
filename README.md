@@ -16,9 +16,19 @@ Prerequisites
 -------------
 
 
-The daemon program requires Perl, `LWP::UserAgent`, and
-`/usr/bin/nsupdate`.  These are provided by the Fedora packages
-perl-interpreter, perl-libwww-perl, and bind-utils, respectively.
+The daemon program requires Perl and `/usr/bin/nsupdate`.  These are
+provided by the Fedora packages perl-interpreter and bind-utils,
+respectively.  In addition, the Perl program uses the following Perl
+modules provided by the corresponding Fedora packages:
+
+| Module | Package |
+|:-------|:--------|
+|LWP::UserAgent | perl-libwww-perl|
+|File::Basename | perl-File-Basename|
+|Getopt::Std | perl-Getopt-Std|
+|Sys::Syslog | perl-Sys-Syslog|
+|YAML::XS | perl-YAML-LibYAML|
+
 Check your distribution for appropriate packages.
 
 Installation
@@ -26,8 +36,8 @@ Installation
 
 
 The installation will require `/usr/bin/make`, `/usr/bin/perl`, and
-`/usr/bin/pod2man`.  These are provided by Fedora packages make,
-perl-interpreter, and perl-podlators respectively.  Check your
+`/usr/bin/pod2man`.  These are provided by Fedora packages *make*,
+*perl-interpreter*, and *perl-podlators* respectively.  Check your
 distribution for appropriate packages.
 
 The service daemon wants a YAML file in `~/.config/secrets.yaml` to
