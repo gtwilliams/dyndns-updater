@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Copyright (c) 2021 Garry T. Williams
+# Copyright (c) 2021, 2022 Garry T. Williams
 #
 # This is free software.  You can redistribute it and/or modify it
 # under the terms of the GNU General Public License version 3 or any
@@ -174,7 +174,7 @@ update is required.
 
 =head1 COPYRIGHT
 
-Copyright (c) 2021 Garry T. Williams
+Copyright (c) 2021, 2022 Garry T. Williams
 
 =head1 AUTHOR
 
