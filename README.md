@@ -21,8 +21,8 @@ provided by the Fedora packages *perl-interpreter* and *bind-utils*,
 respectively.  In addition, the Perl program uses the following Perl
 modules provided by the corresponding Fedora packages:
 
-| Module | Package |
-|:-------|:--------|
+| Perl Module | Fedora Package |
+|:------------|:---------------|
 |LWP::UserAgent | perl-libwww-perl|
 |File::Basename | perl-File-Basename|
 |Getopt::Std | perl-Getopt-Std|
