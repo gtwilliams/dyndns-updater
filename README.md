@@ -17,7 +17,7 @@ Prerequisites
 
 
 The daemon program requires Perl and `/usr/bin/nsupdate`.  These are
-provided by the Fedora packages perl-interpreter and bind-utils,
+provided by the Fedora packages *perl-interpreter* and *bind-utils*,
 respectively.  In addition, the Perl program uses the following Perl
 modules provided by the corresponding Fedora packages:
 
